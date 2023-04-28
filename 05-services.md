@@ -798,6 +798,32 @@ duplicates resulting from the merge are not removed.
 
 Any other allowed keys in the service definition should be treated as scalars.
 
+### external
+
+If set to `true`, `external` specifies that this service managed outside of that application defined
+this the Compose file, and might not even rely on containers. A Compose Implementation MUST NOT attempt 
+to manage container(s) for this service. It SHOULD NOT even assume service is actually implemented using 
+containers, and so SHOULD ignore any healthcheck configuration for service, and consider service as "healthy"
+for dependent services.
+
+This attribute is expected to be used in a Compose override file to replace a service definition with an external resource,
+so that compose just ignores this service managing containers for the application, but without the need to fully redefine 
+the application model.
+
+In the example below, `db` is a database service managed on a cloud infrastructure. 
+
+```yaml
+services:
+  app:
+    image: mycompay/app
+    environment:
+      - DB_URL=${DB_URL}
+    depends_on:
+      - db
+  db:
+    external: true
+```
+
 ### external_links
 
 `external_links` link service containers to services managed outside this Compose application.
