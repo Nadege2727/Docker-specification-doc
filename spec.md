@@ -1033,9 +1033,8 @@ annotations:
 
 ### external_links
 
-`external_links` link service containers to services managed outside this Compose application.
-`external_links` define the name of an existing service to retrieve using the platform lookup mechanism.
-An alias of the form `SERVICE:ALIAS` can be specified.
+`external_links` links service containers to containers managed outside this Compose application.
+An alias of the form `CONTAINER_NAME:ALIAS` can be specified.
 
 ```yml
 external_links:
