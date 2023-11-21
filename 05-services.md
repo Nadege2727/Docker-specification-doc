@@ -1440,6 +1440,14 @@ If `pull_policy` and `build` are both present, Compose builds the image by defau
 
 `read_only` configures the service container to be created with a read-only filesystem.
 
+### remove
+
+When set to `true`, `remove` will configure platform to automatically remove the
+resource when the process exits. This has no effect if `restart` is set.
+
+Service continuity MAY be affected, as resource is removed before Compose implementation
+can react to process termination. Typically, anonymous volumes will be lost.
+
 ### restart
 
 `restart` defines the policy that the platform applies on container termination.
