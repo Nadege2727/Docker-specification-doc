@@ -2434,7 +2434,7 @@ configs:
     name: "${HTTP_CONFIG_KEY}"
 ```
 
-If `external` is set to `true`, all other attributes apart from `name` are irrelevant. If Compose detecs any other attribute, it rejects the Compose file as invalid.
+If `external` is set to `true`, all other attributes apart from `name` are irrelevant. If Compose detects any other attribute, it rejects the Compose file as invalid.
 ## Secrets top-level element
 
 Secrets are a flavor of [Configs](08-configs.md) focusing on sensitive data, with specific constraint for this usage. 
@@ -2501,7 +2501,7 @@ If `external` is set to `true`, all other attributes apart from `name` are irrel
 Your Compose file needs to explicitly grant access to the secrets to relevant services in your application.
 ## Fragments
 
-With Compose, you can use built-in [YAML](https://www.yaml.org/spec/1.2/spec.html#id2765878) features to make your Compose file neater and more efficient. Anchors and aliases let you create re-usable blocks. This is useful if you start to find common configurations that span multiple services. Having re-usable blocks minimizes potential mistakes.
+With Compose, you can use built-in [YAML](https://www.yaml.org/spec/1.2/spec.html#id2765878) features to make your Compose file neater and more efficient. Anchors and aliases let you create reusable blocks. This is useful if you start to find common configurations that span multiple services. Having reusable blocks minimizes potential mistakes.
 
 Anchors are created using the `&` sign. The sign is followed by an alias name. You can use this alias with the `*` sign later to reference the value following the anchor. Make sure there is no space between the `&` and the `*` characters and the following alias name. 
 
@@ -2924,7 +2924,7 @@ services:
 
 In addition to the previously described mechanism, an override Compose file can also be used to remove elements from your application model.
 For this purpose, the custom [YAML tag](https://yaml.org/spec/1.2.2/#24-tags) `!reset` can be set to
-override a value set by the overriden Compose file. A valid value for attribute must be provided,
+override a value set by the overridden Compose file. A valid value for attribute must be provided,
 but will be ignored and target attribute will be set with type's default value or `null`. 
 
 For readability, it is recommended to explicitly set the attribute value to the null (`null`) or empty
